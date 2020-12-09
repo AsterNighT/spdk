@@ -220,6 +220,8 @@ spdk_rpc_accept(void)
 void
 spdk_rpc_register_method(const char *method, spdk_rpc_method_handler func, uint32_t state_mask)
 {
+	// SPDK_LOG cannot be used here
+	printf("register RPC %s\n", method);
 	struct spdk_rpc_method *m;
 
 	m = _get_rpc_method_raw(method);
